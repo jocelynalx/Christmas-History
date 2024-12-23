@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parallax Stacked Images with Tailwind</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Oswald and Montserrat -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Body background color */
+    body {
+      @apply m-0 p-0 min-h-screen;
+      background-color: #61cdff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Parallax Container */
+    .parallax-container {
+      /* pointer-events-none in Tailwind handles pointer events */
+      /* overflow-hidden in Tailwind handles overflow */
+    }
+
+    /* Text shadow for the main title (Tailwind doesn't have default text-shadow) */
+    .text-shadow-custom {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Parallax Background Container -->
+  <div
+    class="parallax-container fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none"
+  >
+    <!-- Foreground image -->
+    <img
+      id="image1"
+      src="/foreground.png"
+      alt="Foreground"
+      class="absolute top-0 left-0 w-full h-full object-cover object-center z-[4]"
+    />
+    <!-- Middleground image -->
+    <img
+      id="image2"
+      src="/middleground.png"
+      alt="Middleground"
+      class="absolute top-0 left-0 w-full h-full object-cover object-center z-[3]"
+    />
+    <!-- Background image -->
+    <img
+      id="image3"
+      src="/background.png"
+      alt="Background"
+      class="absolute top-0 left-0 w-full h-full object-cover object-center z-[1]"
+    />
+
+    <!-- Christmas Text Title -->
+    <div
+      class="absolute top-[250px] left-1/2 -translate-x-1/2 z-[2] text-[90px] font-bold text-[#00aeff] pointer-events-none text-center text-shadow-custom select-none"
+      style="font-family: 'Oswald', sans-serif;"
+    >
+      History of Christmas
+    </div>
+  </div>
+
+  <!-- Main Content (Opaque Background, 100vw) -->
+  <div
+    class="relative z-[5] w-screen mt-[100vh] bg-[rgba(22,100,139,1)] text-white"
+  >
+    <!-- Wrapper for internal content with max-width -->
+    <div class="max-w-7xl mx-auto px-4 py-12">
+
+      <!-- Main Heading -->
+      <h1 class="font-bold text-3xl mb-8" style="font-family: 'Oswald', sans-serif;">
+        History of Christmas
+      </h1>
+
+      <!-- Section 1 (Image Left, Text Right) -->
+      <div class="flex flex-col md:flex-row items-center mb-10">
+        <div class="w-full md:w-1/2 p-2">
+          <!-- Add your preferred image -->
+          <img
+            src="https://via.placeholder.com/400x250.png?text=Christmas+Celebration"
+            alt="A festive Christmas scene"
+            class="rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="w-full md:w-1/2 p-2">
+          <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
+            Introduction
+          </h2>
+          <p class="mb-4">
+            Christmas is an annual festival commemorating the birth of Jesus
+            Christ, observed primarily on December 25. It is celebrated by
+            billions of people worldwide, making it one of the most widely
+            observed holidays.
+          </p>
+          <p>
+            Beyond its religious significance, Christmas has become a cultural
+            event that brings people together with traditions, festivities, and
+            acts of goodwill.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fun Fact Box -->
+      <div class="bg-[#00aeff] text-black p-6 my-8 rounded-lg shadow-lg">
+        <h3
+          class="font-bold mb-2 text-xl"
+          style="font-family: 'Oswald', sans-serif;"
+        >
+          Fun Fact
+        </h3>
+        <p class="leading-relaxed">
+          Did you know? Many of today's Christmas traditions, such as
+          gift-giving and decorating trees, originated from ancient midwinter
+          festivals like the Roman holiday Saturnalia.
+        </p>
+      </div>
+
+      <!-- Section 2 (Text Left, Image Right) -->
+      <div class="flex flex-col md:flex-row items-center mb-10">
+        <div class="w-full md:w-1/2 p-2 order-2 md:order-1">
+          <h2
+            class="font-bold text-2xl mb-4"
+            style="font-family: 'Oswald', sans-serif;"
+          >
+            Origins and Traditions
+          </h2>
+          <p class="mb-4">
+            Early Christians adopted existing reverential practices,
+            integrating them with the celebration of Christ’s birth.
+            Over the centuries, customs such as gift-giving, decorating trees,
+            and sharing feasts evolved into the colorful, festive season we
+            know today.
+          </p>
+          <p>
+            Sparkling lights, nativity scenes, and Christmas trees adorn homes
+            and public spaces around the world. Many regions add special flair
+            to their celebrations—like the Yule log in Northern Europe or the
+            “posadas” processions in Latin American countries.
+          </p>
+        </div>
+        <div class="w-full md:w-1/2 p-2 order-1 md:order-2">
+          <!-- Add your preferred image -->
+          <img
+            src="https://via.placeholder.com/400x250.png?text=Christmas+Carols"
+            alt="People caroling"
+            class="rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      <!-- Section 3 (Image Left, Text Right) -->
+      <div class="flex flex-col md:flex-row items-center mb-10">
+        <div class="w-full md:w-1/2 p-2">
+          <!-- Add your preferred image -->
+          <img
+            src="https://via.placeholder.com/400x250.png?text=Christmas+Spirit"
+            alt="Christmas Spirit"
+            class="rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="w-full md:w-1/2 p-2">
+          <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
+            The Festive Spirit
+          </h2>
+          <p class="mb-4">
+            In many places, Christmas Eve and Christmas Day are marked by church
+            services, family gatherings, caroling, and exchanging presents.
+          </p>
+          <p>
+            Though practices differ internationally, the spirit of Christmas
+            often focuses on hope, peace, and generosity. It is a time when
+            many reflect on the year gone by, look ahead to new opportunities,
+            and share good cheer with those around them.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 4 (Concluding Note) -->
+      <div class="flex flex-col md:flex-row items-start">
+        <div class="w-full p-2">
+          <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
+            Enjoy the Parallax Experience
+          </h2>
+          <p class="mb-4">
+            As you scroll, experience our layered parallax effect, bringing an
+            immersive feel to this timeless story. May the historical essence
+            and cultural richness of Christmas remind us all of the beauty in
+            shared traditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parallax Scrolling Script -->
+  <script>
+    window.addEventListener('scroll', function() {
+      let scrollPosition = window.pageYOffset;
+
+      document.getElementById('image1').style.transform =
+        'translateY(' + (-scrollPosition * 1) + 'px)';
+      document.getElementById('image2').style.transform =
+        'translateY(' + (-scrollPosition * 0.4) + 'px)';
+      document.getElementById('image3').style.transform =
+        'translateY(' + (-scrollPosition * 0.2) + 'px)';
+    });
+  </script>
+</body>
+</html>
