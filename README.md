@@ -4,7 +4,7 @@
 Built using **HTML** and **CSS**, with a touch of **JavaScript** to create a cool parallax effect.
 
 ## 🌐 Website Preview
-You can explore the website here: [Winter Wonderland - Christmas History](https://jocelynalx.github.io/Winter-Wonderland/)
+You can explore the website here: [https://jocelynalx.github.io/Christmas-History/](https://jocelynalx.github.io/Christmas-History/)
 
 > ⚠️ **Note:** The website may take a few seconds to load as it contains approximately **10MB** of images.
 
