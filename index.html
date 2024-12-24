@@ -4,193 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parallax Stacked Images with Tailwind and Snow Effect</title>
-
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <title>Christmas History</title>
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Google Fonts: Oswald and Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;700&display=swap"
     rel="stylesheet" />
-
-  <style>
-    /* Body background color */
-    body {
-      background-color: #5b6d95;
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    /* Text shadow for the main title (Tailwind doesn't have default text-shadow) */
-    .text-shadow-custom {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Ensure full width and height for the parallax container */
-    .parallax-container {
-      width: 100vw;
-      height: 120vh;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Adjust the main content positioning */
-    .main-content {
-      margin-top: 120vh;
-    }
-
-    /* Ensure images cover the entire container */
-    .parallax-container img {
-      width: 100%;
-      height: 120%;
-      object-position: bottom;
-    }
-
-    /* Improved Snow effect */
-    .snow-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .snow {
-      position: absolute;
-      top: -10px;
-      width: 10px;
-      height: 10px;
-      background: white;
-      border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0.8;
-    }
-
-    .snow:nth-child(1) {
-      left: 7%;
-      animation: fall 10s linear infinite;
-    }
-
-    .snow:nth-child(2) {
-      left: 15%;
-      width: 8px;
-      height: 8px;
-      animation: fall 12s linear infinite 1s;
-    }
-
-    .snow:nth-child(3) {
-      left: 25%;
-      width: 12px;
-      height: 12px;
-      animation: fall-rotate 11s linear infinite 2s;
-    }
-
-    .snow:nth-child(4) {
-      left: 35%;
-      width: 6px;
-      height: 6px;
-      animation: fall 13s linear infinite 0s;
-    }
-
-    .snow:nth-child(5) {
-      left: 45%;
-      animation: fall-rotate 10s linear infinite 3s;
-    }
-
-    .snow:nth-child(6) {
-      left: 55%;
-      width: 9px;
-      height: 9px;
-      animation: fall 12s linear infinite 4s;
-    }
-
-    .snow:nth-child(7) {
-      left: 65%;
-      width: 11px;
-      height: 11px;
-      animation: fall-rotate 11s linear infinite 2s;
-    }
-
-    .snow:nth-child(8) {
-      left: 75%;
-      animation: fall 13s linear infinite 1s;
-    }
-
-    .snow:nth-child(9) {
-      left: 85%;
-      width: 7px;
-      height: 7px;
-      animation: fall 10s linear infinite 0s;
-    }
-
-    .snow:nth-child(10) {
-      left: 95%;
-      width: 10px;
-      height: 10px;
-      animation: fall-rotate 12s linear infinite 3s;
-    }
-
-    .snow:nth-child(11) {
-      left: 5%;
-      width: 8px;
-      height: 8px;
-      animation: fall 11s linear infinite 2s;
-    }
-
-    .snow:nth-child(12) {
-      left: 20%;
-      animation: fall-rotate 13s linear infinite 1s;
-    }
-
-    .snow:nth-child(13) {
-      left: 30%;
-      width: 9px;
-      height: 9px;
-      animation: fall 12s linear infinite 3s;
-    }
-
-    .snow:nth-child(14) {
-      left: 40%;
-      width: 6px;
-      height: 6px;
-      animation: fall-rotate 10s linear infinite 0s;
-    }
-
-    .snow:nth-child(15) {
-      left: 50%;
-      animation: fall 11s linear infinite 2s;
-    }
-
-    @keyframes fall {
-      0% {
-        top: -10px;
-        opacity: 0.8;
-      }
-
-      100% {
-        top: 100%;
-        opacity: 0.3;
-      }
-    }
-
-    @keyframes fall-rotate {
-      0% {
-        top: -10px;
-        transform: rotate(0deg);
-        opacity: 0.8;
-      }
-
-      100% {
-        top: 100%;
-        transform: rotate(360deg);
-        opacity: 0.3;
-      }
-    }
-
-  </style>
+  <!-- Google Icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -216,7 +39,7 @@
     </div>
 
     <!-- Foreground image -->
-    <img id="image1" src="assets/background2.png" alt="Foreground"
+    <img id="image1" src="assets/foreground.png" alt="Foreground"
       class="absolute top-0 left-0 w-full h-full object-cover object-bottom z-[4]" />
     <!-- Middleground image -->
     <img id="image2" src="assets/middleground.png" alt="Middleground"
@@ -224,35 +47,23 @@
     <!-- Background image -->
     <img id="image3" src="assets/background.png" alt="Background"
       class="absolute top-0 left-0 w-full h-full object-cover object-bottom z-[1]" />
-
-    <!-- Christmas Text Title -->
-    <!-- Christmas Text Title -->
-<!-- Christmas Text Title -->
-<div
-  class="absolute top-28 left-1/2 -translate-x-1/2 z-[2] text-7xl sm:text-7xl md:text-7xl lg:text-8xl font-bold text-[#ffffff] pointer-events-none text-center text-shadow-custom select-none leading-[1.1] sm:leading-tight md:leading-tight lg:leading-[1.1]"
-  style="font-family: 'Oswald', sans-serif;">
-  The History of Christmas
-</div>
-
-
-
+      <div
+      class="absolute top-28 left-1/2 -translate-x-1/2 z-[2] text-7xl sm:text-7xl md:text-7xl lg:text-8xl font-bold text-[#ffffff] pointer-events-none text-center text-shadow-custom select-none leading-[1.1] sm:leading-tight md:leading-tight lg:leading-[1.1] transition-all duration-300 ease-in-out title-scroll-animation"
+      style="font-family: 'Oswald', sans-serif;">
+      The History of Christmas
+    </div>
   </div>
 
-  <!-- Main Content (Opaque Background, 100vw) -->
   <div class="relative z-[5] w-100 mt-[125vh] bg-[#5b6d95] text-white">
-    <!-- Wrapper for internal content with max-width -->
     <div class="max-w-7xl mx-auto px-4 py-12">
 
-      <!-- Main Heading -->
       <h1 class="font-bold text-3xl mb-8 custom-line-height" style="font-family: 'Oswald', sans-serif;">
         History of Christmas
       </h1>
 
-      <!-- Section 1 (Image Left, Text Right) -->
       <div class="flex flex-col md:flex-row items-center mb-10">
         <div class="w-full md:w-1/2 p-2">
-          <img src="https://via.placeholder.com/400x250.png?text=Christmas+Celebration" alt="A festive Christmas scene"
-            class="rounded-lg shadow-lg" />
+          <img src="assets/festive_christmas.jpg" alt="A festive Christmas scene" class="rounded-lg shadow-lg" />
         </div>
         <div class="w-full md:w-1/2 p-2">
           <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
@@ -272,7 +83,6 @@
         </div>
       </div>
 
-      <!-- Fun Fact Box -->
       <div class="bg-[#e6b396] text-black p-6 my-8 rounded-lg shadow-lg">
         <h3 class="font-bold mb-2 text-xl" style="font-family: 'Oswald', sans-serif;">
           Fun Fact
@@ -284,7 +94,6 @@
         </p>
       </div>
 
-      <!-- Section 2 (Text Left, Image Right) -->
       <div class="flex flex-col md:flex-row items-center mb-10">
         <div class="w-full md:w-1/2 p-2 order-2 md:order-1">
           <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
@@ -305,16 +114,13 @@
           </p>
         </div>
         <div class="w-full md:w-1/2 p-2 order-1 md:order-2">
-          <img src="https://via.placeholder.com/400x250.png?text=Christmas+Carols" alt="People caroling"
-            class="rounded-lg shadow-lg" />
+          <img src="assets/people caroling.jpg" alt="People caroling" class="rounded-lg shadow-lg" />
         </div>
       </div>
 
-      <!-- Section 3 (Image Left, Text Right) -->
       <div class="flex flex-col md:flex-row items-center mb-10">
         <div class="w-full md:w-1/2 p-2">
-          <img src="https://via.placeholder.com/400x250.png?text=Christmas+Spirit" alt="Christmas Spirit"
-            class="rounded-lg shadow-lg" />
+          <img src="assets/christmas_spirit.jpg" alt="Christmas Spirit" class="rounded-lg shadow-lg" />
         </div>
         <div class="w-full md:w-1/2 p-2">
           <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
@@ -333,14 +139,56 @@
         </div>
       </div>
 
-     
+      <div class="flex flex-col md:flex-row items-center mb-10">
+        <div class="w-full md:w-1/2 p-2 order-2 md:order-1">
+          <h2 class="font-bold text-2xl mb-4" style="font-family: 'Oswald', sans-serif;">
+            Wrapping Up Christmas History
+          </h2>
+          <p class="mb-4">
+            From its origins as a Christian celebration of Christ's birth to its evolution into a global cultural
+            phenomenon, Christmas has a rich and diverse history. It has absorbed and adapted traditions from various
+            cultures, resulting in the multifaceted holiday we know today.
+          </p>
+          <p class="mb-4">
+            Whether it's through religious observances, cultural traditions, or simply the spirit of giving and
+            togetherness, Christmas continues to hold a special place in the hearts of people around the world.
+          </p>
+          <p>
+            As we celebrate Christmas, let's remember its history and the values it represents: peace, love, and
+            goodwill to all. Share the Christmas spirit with those around you and create your own traditions to add to
+            this ever-evolving story.
+          </p>
+        </div>
+        <div class="w-full md:w-1/2 p-2 order-1 md:order-2">
+          <img src="assets/modern_christmas.jpg" alt="Modern Christmas Celebration" class="rounded-lg shadow-lg" />
+        </div>
+      </div>
+
+      <div class="bg-[#e6b396] text-black p-6 my-8 rounded-lg shadow-lg text-center">
+        <h3 class="font-bold mb-2 text-xl" style="font-family: 'Oswald', sans-serif;">
+          Explore the Code!
+        </h3>
+        <p class="leading-relaxed mb-4">
+          Interested in how this page was built? Check out the source code on GitHub and dive into the magic behind the
+          scenes!
+        </p>
+        <a href="https://github.com/jocelynalx/Winter-Wonderland" target="_blank" rel="noopener noreferrer"
+          class="inline-block">
+          <button
+            class="bg-[#5b6d95] text-white font-bold py-2 px-4 rounded hover:bg-[#4a5a7a] transition duration-300 flex items-center">
+            <span class="material-icons mr-2" style="font-size: 20px;">code</span>
+            View on GitHub
+          </button>
+        </a>
+      </div>
     </div>
   </div>
+
 
   <script>
     window.addEventListener('scroll', function () {
       let scrollPosition = window.pageYOffset;
-      let containerHeight = window.innerHeight * 1; // 120vh
+      let containerHeight = window.innerHeight * 1;
 
       document.getElementById('image1').style.transform =
         'translateY(' + (-scrollPosition * 1) + 'px)';
